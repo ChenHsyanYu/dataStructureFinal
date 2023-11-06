@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Page</title>
+<style>
+  body {
+    font-family: 'raleway-bold', sans-serif;
+    background-color: #21486f; /* Dark grey-blue */
+    margin: 0;
+    color: white; 
+  }
+  #brand {
+    font-family: 'raleway-bold', sans-serif;
+    font-size: 30px; 
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    margin-top: 30px; /* Space from the top */
+  }
+  #search-bar-container {
+    display: flex;
+    justify-content: center; /* Center the search bar */
+    margin-top: 20px; /* Space from the brand text */
+  }
+  #search-box {
+  width: 50%; /* Half of the page width */
+  height: 40px;
+  border: none; 
+  border-radius: 20px; /* Rounded corners */
+  text-align: center; /* Center the placeholder text */
+  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent */
+  color: white; /* Set the text color to white */
+}
+
+#search-box::placeholder {
+  color: white; /* Set the placeholder text color to white */
+}
+
+#search-box:hover {
+  background-color: rgba(255, 255, 255, 0.5); 
+  color: #dfe5eb; /* Change text color on hover to match the body background */
+}
+
+#search-box:focus {
+  outline: none; /* Remove focus border */
+  background-color: rgba(255, 255, 255, 0.5); 
+  color: #dfe5eb; /* Change text color on hover to match the body background */
+}
+  #search-button {
+    font-family: 'Raleway', sans-serif;
+    cursor: pointer;
+    padding: 0 15px; /* Adjust padding as needed */
+    height: 46px; /* Same height as search box */
+    border: none; /* Remove border */
+    border-radius: 50px; /* Rounded corners */
+    background-color: rgba(255, 255, 255); /* Semi-transparent */
+    margin-left: 10px; /* Space between search box and button */
+  }
+  .divider {
+    height: 1px;
+    background-color: #ccc; /* Light grey color */
+    width: 100%;
+    margin-top: 20px; /* Space from the search bar */
+  }
+  .search-results {
+    margin-top: 20px; /* Space from the divider */
+    padding-left: 25%; /* Start from 1/4 of the page */
+  }
+  .search-results a {
+    color: white; /* White color for links */
+    text-decoration: none;
+  }
+  .search-results a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+<span id="brand" onclick="window.location.href='YOUR_HOME_PAGE_URL';">NCCU Course Review Inquiry</span>
+<div id="search-bar-container">
+  <input type="text" id="search-box" placeholder="Search...">
+  <button id="search-button">Search</button>
+</div>
+<div class="divider"></div>
+<!-- Search results will go here -->
+<div class="search-results">
+  <!-- Example of a search result -->
+  <a href="http://example.com" target="_blank">Example Web Page Title</a>
+</div>
+<script>
+  // JavaScript to handle the search functionality will be added here
+</script>
+</body>
+</html>

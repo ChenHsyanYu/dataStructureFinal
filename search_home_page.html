@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Home Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet">
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .bg {
+            background-image: url('https://drive.google.com/uc?export=view&id=1-2NoAT86UME820cSjM6eoUb44iwwXTkP');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            /* Bold */
+            color: #fff;
+            /* White color */
+            margin-bottom: 20px;
+            /* Space before the semi-transparent area */
+            text-shadow: 2px 2px 4px #000000;
+            /* Text shadow for better readability */
+        }
+
+        .search-container {
+            width: 90%;
+            /* Increased size of the search area */
+            max-width: 600px;
+            /* Maximum width to keep the design sane on larger screens */
+            background: rgba(255, 255, 255, 0.3);
+            /* Increased transparency */
+            border-radius: 5px;
+            padding: 40px;
+            /* Increased padding to enlarge the area */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .search-box {
+            width: 80%;
+            padding: 15px;
+            margin-bottom: 10px;
+            /* Reduced margin */
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            /* Search box is also semi-transparent now */
+            transition: background-color 0.3s;
+        }
+
+        .search-box:hover {
+            background-color: #fff;
+            /* Solid color on hover */
+        }
+
+        .search-button {
+            width: 40%;
+            /* Half of the original size */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f8f8f8;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'Raleway', sans-serif;
+            /* Raleway font */
+        }
+
+        .search-button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg">
+        <div class="title">NCCU Course Review Inquiry</div>
+        <div class="search-container">
+            <input type="text" id="search-box" class="search-box" placeholder="Search...">
+            <button onclick="search()" class="search-button">Search</button>
+        </div>
+    </div>
+
+    <script>
+        function search() {
+            var searchQuery = document.getElementById('search-box').value;
+            if (searchQuery) {
+                // In a real application, this would send the search term to your backend server.
+                // Since we don't have a backend server here, we'll simulate this with an alert.
+                alert('Search for: ' + searchQuery);
+                // Here you would typically redirect to a search results page or perform some AJAX to retrieve search results.
+                // window.location.href = 'search-results-page.html?query=' + encodeURIComponent(searchQuery);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
