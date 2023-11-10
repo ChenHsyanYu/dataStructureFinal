@@ -103,11 +103,14 @@
         function search() {
             var searchQuery = document.getElementById('search-box').value;
             if (searchQuery) {
-                // In a real application, this would send the search term to your backend server.
-                // Since we don't have a backend server here, we'll simulate this with an alert.
-                alert('Search for: ' + searchQuery);
+               //return searchQuery to backend
+               //turn to search_result_page.html
+                window.location.href = 'search_result_page.php?query=' + encodeURIComponent(searchQuery);   
                 // Here you would typically redirect to a search results page or perform some AJAX to retrieve search results.
                 // window.location.href = 'search-results-page.html?query=' + encodeURIComponent(searchQuery);
+            }
+            else{
+                alert('Please enter a search term.');
             }
         }
     </script>
