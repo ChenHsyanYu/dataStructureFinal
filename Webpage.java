@@ -1,12 +1,12 @@
 public class Webpage {
     public String url;
     public String title;
-    public Double score;
+    public double score;
 
-    public void setScroe(){
+    public double setScore() {
         score = 0.0;
-        for(int i =0 ; i<7; i++){
-            score += Keyword.Counts[i] * Keyword.getKeyWordweight(Keyword.Keywords[i]); 
+        for (int i = 0; i < 7; i++) {
+            score += Keyword.Counts[i] * Keyword.getKeyWordweight(Keyword.Keywords[i]);
         }
         return score;
     }

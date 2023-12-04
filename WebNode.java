@@ -2,7 +2,7 @@ public class WebNode {
     public WebNode parent;
     public WebNode leftChild;
     public WebNode rightChild;
-    public float nodeScore;
+    public double nodeScore;
     WeboNode(){
         parent = null;
         leftChild = null;
@@ -16,7 +16,7 @@ public class WebNode {
         this.nodeScore = nodeScore;
     }
     public void setNodeScore(){
-        float nodeScore = Webpage.serScore();
+        double nodeScore = Webpage.setScore();
         this.nodeScore = nodeScore;
     }
     public void setParent(WebNode parent){

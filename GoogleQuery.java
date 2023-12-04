@@ -12,33 +12,27 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class GoogleQuery {
-    public String searchKeyword;
-    public String url;  
-    public String content;
+	public String searchKeyword;
+	public String url;
+	public String content;
 
-    public GoogleQuery(String searchKeyword){
-        this.searchKeyword = searchKeyword;
-        try
-        {
-            String encodeKeyword = java.net.URLEncoder.encode(searchKeyword, "utf-8");
-            this.url = "http://www.google.com/search?q="+searchKeyword+"&oe=utf8&num=10";
-        }
-        catch(Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
+	public GoogleQuery(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+		try {
+			String encodeKeyword = java.net.URLEncoder.encode(searchKeyword, "utf-8");
+			this.url = "http://www.google.com/search?q=" + searchKeyword + "&oe=utf8&num=10";
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 
-    }
-    
-}
+	}
 
-private String fetchContent() throws IOException
-	{
+	private String fetchContent() throws IOException {
 		String retVal = "";
 
 		URL u = new URL(url);
 		URLConnection conn = u.openConnection();
-		//set HTTP header
+		// set HTTP header
 		conn.setRequestProperty("User-agent", "Chrome/107.0.5304.107");
 		InputStream in = conn.getInputStream();
 
@@ -46,13 +40,12 @@ private String fetchContent() throws IOException
 		BufferedReader bufReader = new BufferedReader(inReader);
 		String line = null;
 
-		while((line = bufReader.readLine()) != null)
-		{
+		while ((line = bufReader.readLine()) != null) {
 			retVal += line;
 		}
 		return retVal;
 	}
-	
+
 	public HashMap<String, String> query() throws IOException
 	{
 		if(content == null)

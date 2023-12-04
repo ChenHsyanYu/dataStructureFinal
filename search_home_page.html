@@ -103,13 +103,19 @@
         function search() {
             var searchQuery = document.getElementById('search-box').value;
             if (searchQuery) {
-               //return searchQuery to backend
-               //turn to search_result_page.html
-                window.location.href = 'search_result_page.php?query=' + encodeURIComponent(searchQuery);   
-                // Here you would typically redirect to a search results page or perform some AJAX to retrieve search results.
-                // window.location.href = 'search-results-page.html?query=' + encodeURIComponent(searchQuery);
+                // 發送AJAX請求到Java後端
+                fetch('searchServlet?query=' + encodeURIComponent(searchQuery))
+                    .then(response => response.text())
+                    .then(data => {
+                        // 儲存後端回應到localStorage或sessionStorage
+                        localStorage.setItem('searchResults', data);
+
+                        // 轉換到search_result_page.html
+                        window.location.href = 'search_result_page.html';
+                    })
+                    .catch(error => console.error('Error:', error));
             }
-            else{
+            else {
                 alert('Please enter a search term.');
             }
         }
