@@ -3,8 +3,8 @@ import java.util.List;
 
 public class Keyword {
 
-    String[] Keywords = {"政治大學", "政大", "選課心得", "修課心得", "心得","評價","Dcard"};
-    Float[] Weights = [7];
+    public String[] Keywords = {"政治大學", "政大", "選課心得", "修課心得", "心得","評價","Dcard"};
+    public Float[] Counts = [7];
     public Keyword(){}
     public double getKeyWordweight(String keyword){
 

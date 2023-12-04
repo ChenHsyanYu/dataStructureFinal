@@ -6,7 +6,7 @@ public class Webpage {
     public void setScroe(){
         score = 0.0;
         for(int i =0 ; i<7; i++){
-            score += Keyword.weights[i];
+            score += Keyword.Counts[i] * Keyword.getKeyWordweight(Keyword.Keywords[i]); 
         }
         return score;
     }
