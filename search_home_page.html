@@ -105,7 +105,7 @@
             if (searchQuery) {
                 // 發送AJAX請求到Java後端
                 fetch('searchServlet?query=' + encodeURIComponent(searchQuery))
-                    .then(response => response.text())
+                    .then(response => response.text.json())
                     .then(data => {
                         // 儲存後端回應到localStorage或sessionStorage
                         localStorage.setItem('searchResults', data);

@@ -1,5 +1,8 @@
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class Facade {
 
@@ -28,25 +31,30 @@ public class Facade {
 
             //List the WebTree
             ArrayList<WebNode> list = webTree.ListTree();
-
-
+            ArrayList<String> titleList = new ArrayList<String>();
+            ArrayList<String> urlList = new ArrayList<String>();
+            for(int i = 0; i< list.size(); i++){
+                titleList.add(list.get(i).webpage.title);
+                urlList.add(list.get(i).webpage.url);
             }
 
+            JSONArray resultsArray = new JSONArray();
 
-            // 處理查詢
-            String searchResults = processSearchQuery(query);
+            // 將標題和網址放入 JSON 陣列
+            for(int i = 0; i< list.size(); i++){
+                JSONObject item = new JSONObject();
+                item.put("title", list.get(i).webpage.title);
+                item.put("url", list.get(i).webpage.url);
+                resultsArray.put(item);
+            }
 
-            // 設置回應類型為文本
-            response.setContentType("text/plain");
+            // 設置響應類型為 JSON
+            response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
 
-            // 發送處理結果回前端
-            response.getWriter().write(searchResults);
+            // 發送 JSON 陣列至前端
+            response.getWriter().write(resultsArray.toString());
+
         }
-
     }
-
-
-
-
 }

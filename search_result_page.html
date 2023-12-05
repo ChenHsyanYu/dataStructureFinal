@@ -81,22 +81,40 @@
 </style>
 </head>
 <body>
-<span id="brand" onclick="window.location.href='YOUR_HOME_PAGE_URL';">NCCU Course Review Inquiry</span>
-<div id="search-bar-container">
-  <input type="text" id="search-box" placeholder="Search...">
-  <button id="search-button">Search</button>
-</div>
-<div class="divider"></div>
-<!-- Search results will go here -->
-<div class="search-results">
-  <!-- Example of a search result -->
-  <a href="http://example.com" target="_blank">Example Web Page Title</a>
-</div>
-<script>
-  //get the linkes and titles from the databes
-  const links =[];
-  const titles =[];
-  
-</script>
-</body>
-</html>
+  <span id="brand" onclick="window.location.href='search_home_page.html';">NCCU Course Review Inquiry</span>
+  <div id="search-bar-container">
+    <input type="text" id="search-box" placeholder="Search...">
+    <button id="search-button" onclick="search()">Search</button>
+  </div>
+  <div class="divider"></div>
+  <div class="search-results" id="search-results">
+    <!-- 搜索結果將顯示在這裡 -->
+  </div>
+  <script>
+    function search() {
+      const searchTerm = document.getElementById('search-box').value;
+      fetch(`/searchServlet?query=${encodeURIComponent(searchTerm)}`)
+        .then(response => response.json())
+        .then(data => {
+          const resultsContainer = document.getElementById('search-results');
+          resultsContainer.innerHTML = ''; // 清除之前的搜索結果
+
+          if (data && Array.isArray(data)) { // 檢查數據是否有效且為陣列
+            data.forEach(item => {
+              const link = document.createElement('a');
+              link.href = item.url;
+              link.textContent = item.title;
+              link.target = '_blank';
+              resultsContainer.appendChild(link);
+              resultsContainer.appendChild(document.createElement('br')); // 添加換行
+            });
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          // 在這裡添加錯誤處理邏輯，例如顯示錯誤消息
+        });
+  }
+  </script>
+  </body>
+  </html>

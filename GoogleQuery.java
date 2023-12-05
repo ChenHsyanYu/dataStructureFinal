@@ -20,7 +20,7 @@ public class GoogleQuery {
 		this.searchKeyword = searchKeyword;
 		try {
 			String encodeKeyword = java.net.URLEncoder.encode(searchKeyword, "utf-8");
-			this.url = "http://www.google.com/search?q=" + searchKeyword + "&oe=utf8&num=10";
+			this.url = "http://www.google.com/search?q=" + encodeKeyword + "&oe=utf8&num=10";
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
