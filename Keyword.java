@@ -4,11 +4,12 @@ import java.util.List;
 public class Keyword {
 
     public static String[] Keywords = { "政治大學", "政大", "選課心得", "修課心得", "心得", "評價", "Dcard" };
-    public static double[] Counts = new double[7];
+    public static double[] Counts = new double[7]; // to store the number of keywords in the webpage
 
     public Keyword() {
     }
 
+    // Return the weight of the keyword
     public static double getKeyWordweight(String keyword) {
 
         switch (keyword) {

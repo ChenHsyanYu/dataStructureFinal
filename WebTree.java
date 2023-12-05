@@ -10,6 +10,8 @@ public class WebTree {
     public void setRoot(WebNode root){
         this.root = root;
     }
+
+    //insert node into the tree by using BST
     public void insert(WebNode node){
         if(root == null){
             root = node;
@@ -17,7 +19,7 @@ public class WebTree {
         else{
             WebNode current = root;
             while(current != null){
-                if(node.nodeScore < current.nodeScore){
+                if(node.webpage.score < current.webpage.score){
                     if(current.leftChild == null){
                         current.leftChild = node;
                         node.parent = current;
@@ -40,9 +42,13 @@ public class WebTree {
             }
         }
     }
+
+    //List the tree from highest score to lowest score
     public ArraytList<WebNode> ListTree(){
        ArrayList<WebNode> list = traverse(root);
     }
+
+    //traverse the tree from highest score to lowest score
     private void traverse(WebNode root){
         ArrayList<WebNode> list = new ArrayList<WebNode>(); 
         if(root == null){

@@ -26,7 +26,7 @@ public class GoogleQuery {
 		}
 
 	}
-
+	//fetch the content from the given URL
 	private String fetchContent() throws IOException {
 		String retVal = "";
 
@@ -45,7 +45,7 @@ public class GoogleQuery {
 		}
 		return retVal;
 	}
-
+	//store the title and url into HashMap
 	public HashMap<String, String> query() throws IOException
 	{
 		if(content == null)
