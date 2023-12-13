@@ -3,7 +3,8 @@ public class WebNode {
     public WebNode leftChild;
     public WebNode rightChild;
     public Webpage webpage;
-    WeboNode(){
+    public float nodeScore;
+    public WebNode(){
         parent = null;
         leftChild = null;
         rightChild = null;
@@ -22,7 +23,7 @@ public class WebNode {
     public void setLeftChild(WebNode leftChild){
         this.leftChild = leftChild;
     }
-    publice void setRightChild(WebNode rightChild){
+    public void setRightChild(WebNode rightChild){
         this.rightChild = rightChild;
     }
 }

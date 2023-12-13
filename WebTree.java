@@ -44,19 +44,20 @@ public class WebTree {
     }
 
     //List the tree from highest score to lowest score
-    public ArraytList<WebNode> ListTree(){
+    public ArrayList<WebNode> ListTree(){
        ArrayList<WebNode> list = traverse(root);
+       return list;
     }
 
     //traverse the tree from highest score to lowest score
-    private void traverse(WebNode root){
+    private ArrayList<WebNode> traverse(WebNode root){
         ArrayList<WebNode> list = new ArrayList<WebNode>(); 
         if(root == null){
             return list;
         }
         else{
-            current = root;
-            if(current){
+            WebNode current = root;
+            if(current != null){
                 traverse(current.rightChild);
                 list.add(current);
                 traverse(current.leftChild);

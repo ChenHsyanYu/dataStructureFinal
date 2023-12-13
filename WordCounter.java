@@ -15,9 +15,9 @@ public class WordCounter {
 
     //fetch the content from the given URL
     private String fetchContent() throws IOException{
-        URL url = new URL(this.urlStr);
+        URL url = new URL(this.urlstr);
         URLConnection conn = url.openConnection();
-        ImputStream in = conn.getInputStream();
+        InputStream in = conn.getInputStream();
         BufferedReader br = new BufferedReader(new InputStreamReader(in));
         
         String retVal = "";
@@ -42,7 +42,7 @@ public class WordCounter {
 				{
 					if (j == 0)
 					{
-						MatchTimes++; // a match!
+					    Matchtimes++; // a match!
 						restart = i;
 						i = i + P.length();
 					}
@@ -84,7 +84,7 @@ public class WordCounter {
     }
 
     //retrun the counts Array of keywords in the content
-    public void countKeyword(ArrayList Keywords) throws IOException{
+    public double[] countKeyword(ArrayList<Keyword> Keywords) throws IOException{
         if (content == null){
 		    content = fetchContent();
 		}
@@ -92,10 +92,10 @@ public class WordCounter {
         //To do a case-insensitive search, we turn the whole content and keyword into upper-case:
 		content = content.toUpperCase();
         for(int i =0 ; i< Keyword.Keywords.length; i++){
-            keyword = Keyword.Keywords[i].toUpperCase();
+            String keyword = Keyword.Keywords[i].toUpperCase();
             int retVal = 0;
             BoyerMoore(content, keyword);
-            retVal = MatchTimes;
+            retVal = Matchtimes;
             Keyword.Counts[i] = retVal;
         }	
 		return Keyword.Counts;
