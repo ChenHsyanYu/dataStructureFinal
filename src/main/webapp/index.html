@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+        <title>Search engine</title>
+    </head>
+    <body>
+        <script>
+            
+            var lineCount = 0;
+            var url = [];
+
+            function loadUrls(num){  // 載入搜尋內容
+                for(var i=0;i<num;i++){
+                    url.push("這是第"+ i +"筆資料");
+                }
+            }
+
+            function reLoadUrls(){  // 重新按搜尋清空原本的搜尋內容
+                while(url.length){
+                    var container = document.querySelector("#result");
+                    container.removeChild('A');
+                    container.removeChild('P');
+                }
+            }
+
+            function changeHeader(){  // 把搜尋欄變小往上縮 failed
+                var header = document.getElementsById("#search");
+                header.style.height = "100px";
+                
+            }
+
+            function showResults(){
+                
+                document.getElementById("resultShow").style.display = "block";
+                
+                reLoadUrls();
+                loadUrls(10);
+                for(var i = 0 ; i < url.length ; i++){  // 顯示搜尋內容
+                    var result = document.createElement('A');
+                    var change = document.createElement('P');
+
+                    result.setAttribute("herf", '#');
+                    change.textContent = url[i];
+                    
+                    var container = document.querySelector('#result');   
+                    
+                    result.appendChild(change);
+                    container.appendChild(result);
+                }
+                changeHeader();
+            }
+
+
+            
+        </script>
+
+
+        <header>
+            <!-- <img src="images/searchBackground.jpg" alt="" id="background"> -->
+            <div id="search">
+                <h1>Search</h1>
+                <input type="text" id="keyInput" placeholder="搜尋">
+            </div>
+            <a href="#resultShow"><img src="images/magnifying.png" alt="" id="magnifying" onclick="showResults()"></a>
+            <!-- <a onclick= getResults() href="#resultShow"></a> -->
+        </header>
+
+        <main>
+            <div id="resultShow" style="display: none;">
+                <h2>搜尋結果</h2>
+                <div id="result">
+
+                </div>
+            </div>
+            
+
+        </main>
+    </body>
+</html>
