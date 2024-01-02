@@ -3,18 +3,18 @@ public class WebNode {
     public WebNode leftChild;
     public WebNode rightChild;
     public Webpage webpage;
-    public float nodeScore;
-    public WebNode(){
+    
+    public WebNode(Webpage page){
+    	this.webpage = page;
+    	System.out.println("標題"+" "+page.title);
         parent = null;
         leftChild = null;
         rightChild = null;
-        nodeScore = 0;
     }
-    WebNode(WebNode parent, WebNode leftChild, WebNode rightChild, float nodeScore){
+    WebNode(WebNode parent, WebNode leftChild, WebNode rightChild){
         this.parent = parent;
         this.leftChild = leftChild;
         this.rightChild = rightChild;
-        this.nodeScore = nodeScore;
     }
     //setters
     public void setParent(WebNode parent){

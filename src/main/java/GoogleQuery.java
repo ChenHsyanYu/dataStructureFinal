@@ -20,7 +20,7 @@ public class GoogleQuery {
 		this.searchKeyword = searchKeyword;
 		try {
 			String encodeKeyword = java.net.URLEncoder.encode(searchKeyword, "utf-8");
-			this.url = "http://www.google.com/search?q=" + encodeKeyword + "&oe=utf8&num=10";
+			this.url = "http://www.google.com/search?q=" + encodeKeyword+ "政大選課心得" + "&oe=utf8&num=1000";
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -80,7 +80,7 @@ public class GoogleQuery {
 					continue;
 				}
 				
-				System.out.println("Title: " + title + " , url: " + citeUrl);
+//				System.out.println("Title: " + title + " , url: " + citeUrl);
 				
 				//put title and pair into HashMap
 				retVal.put(title, citeUrl);
@@ -92,4 +92,6 @@ public class GoogleQuery {
 		}
 		
 		return retVal;
+		
 	}
+}

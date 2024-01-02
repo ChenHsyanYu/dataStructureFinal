@@ -14,9 +14,9 @@ public class Keyword {
 
         switch (keyword) {
             case "政治大學":
-                return 4.0;
+                return 8.0;
             case "政大":
-                return 4.0;
+                return 8.0;
             case "選課心得":
                 return 2.0;
             case "修課心得":
